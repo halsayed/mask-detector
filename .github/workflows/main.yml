@@ -49,6 +49,6 @@ jobs:
           python deploy/kps_deploy.py
         env:
           APPLICATION_UUID: 817c6f3c-7f0b-4189-83b6-07d6966e4546
-          KPS_API_KEY: ${{ KPS_API_KEY }}
+          KPS_API_KEY: ${{ secrets.KPS_API_KEY }}
 
 
