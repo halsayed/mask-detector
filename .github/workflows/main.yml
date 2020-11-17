@@ -27,7 +27,7 @@ jobs:
         with:
             username: ${{ secrets.DOCKER_USER }}
             password: ${{ secrets.DOCKER_PASS }}
-            repository: voxic/kps-simple
+            repository: hexadtech/mask-detector
             tag_with_ref: true
 
       # Runs a set of commands using the runners shell
