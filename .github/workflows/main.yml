@@ -3,11 +3,17 @@
 name: KPS-CICD
 
 # events changes on master
+#on:
+#  push:
+#    branches: [ master ]
+#  pull_request:
+#    branches: [ master ]
+# trigger on tag
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    tags:
+      - '*'
+
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -29,4 +35,9 @@ jobs:
             password: ${{ secrets.DOCKER_PASS }}
             repository: hexadtech/mask-detector
             tag_with_ref: true
+
+      - name: Get tag
+        id: tag
+        uses: dawidd6/action-get-tag@v1
+
 
