@@ -7,7 +7,16 @@ RUN mkdir /app
 WORKDIR /app
 
 # python requirements
-COPY ./ /app/
+COPY ./model/ /app/
+COPY ./static/ /app/
+COPY ./supervisor/ /app/
+COPY ./templates/ /app/
+COPY ./requirements.txt /app/
+COPY ./background_service.py /app/
+COPY ./config.py /app/
+COPY ./helpers.py /app/
+COPY ./videoCapture.py /app/
+COPY ./wsgi.py /app/
 RUN pip install -r /app/requirements.txt
 
 # set default environmnet variables
