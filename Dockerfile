@@ -12,6 +12,7 @@ COPY ./static/ /app/
 COPY ./supervisor/ /app/
 COPY ./templates/ /app/
 COPY ./requirements.txt /app/
+COPY ./app.py /app/
 COPY ./background_service.py /app/
 COPY ./config.py /app/
 COPY ./helpers.py /app/
