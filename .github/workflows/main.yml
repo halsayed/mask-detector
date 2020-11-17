@@ -32,8 +32,8 @@ jobs:
 
       # Trigger redeploy on KPS
       - name: Call KPS API
-          uses: voxic/simpleKPSAction@v1
-          with:
+        uses: voxic/simpleKPSAction@v1
+        with:
             tag: latest
             image: hexadtech/mask-detector
             kps-api-key: ${{ secrets.KPS_API_KEY }}
