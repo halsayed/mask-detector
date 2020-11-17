@@ -7,7 +7,7 @@ class Config:
     APP_NAME = os.environ.get('APP_NAME', 'Face Mask Detector')
     SHORT_NAME = os.environ.get('SHORT_NAME', 'FMD')
     LOCATION = os.environ.get('LOCATION', 'Mask Detector')
-    VERSION = 'v1.0'
+    VERSION = 'v1.1'
     REFRESH_INTERVAL = int(os.environ.get('REFRESH_INTERVAL', 1000))    # msec for page refresh
 
     MASK_DETECTOR_MODEL = os.environ.get('MASK_DETECTOR_MODEL', 'model/mask_detector')
