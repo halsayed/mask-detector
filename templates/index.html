@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <div class="container-fluid">
+
+        <div class="row" style="padding-top:1rem;">
+            <div class="col-8 align-top" style="padding-top:1rem;">
+                <img class="align-top img-fluid rounded" style="max-width:97%;" src="image_still" id="image_still">
+            </div>
+
+
+            <div class="col-4">
+
+                <div class="card">
+                    <div class="card-body rounded" style="background-color:#343a40;">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h6 class="card-title text-uppercase text-muted mb-2">Camera Name</h6>
+                                {% if camera_name %}
+                                <span class="h2 mb-0" style="color:#ffffff;">{{ camera_name }}</span>
+                                {% else %}
+                                <span class="h2 mb-0" style="color:#ffffff;">Demo Camera</span>
+                                {% endif %}
+                            </div>
+                            <div class="col-auto">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h6 class="card-title text-uppercase text-muted mb-2">Timestamp</h6>
+                                <span class="h2 mb-0" id="image_timestamp">{{ timestamp }}</span>
+                            </div>
+                            <div class="col-auto">
+                                <span class="fas fa-hourglass-half fa-3x" style="color:#95aac9;"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h6 class="card-title text-uppercase text-muted mb-2">Mask Count</h6>
+                                <span class="h2 mb-0" id="mask_count">{{  mask_count }}</span>
+                                <span class="badge badge-success mt-n1" id="count_current_diff"></span>
+                            </div>
+                            <div class="col-auto">
+                                <span class="fas fa-check-circle fa-3x" style="color:#95aac9;"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h6 class="card-title text-uppercase text-muted mb-2">No Mask Count</h6>
+                                <span class="h2 mb-0" id="nomask_count">{{  nomask_count }}</span>
+                                <span class="badge badge-success mt-n1" id="count_current_diff"></span>
+                            </div>
+                            <div class="col-auto">
+                                <span class="fas fa-times-circle fa-3x" style="color:#95aac9;"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}
