@@ -7,10 +7,10 @@ RUN mkdir /app
 WORKDIR /app
 
 # python requirements
-COPY ./model/ /app/
-COPY ./static/ /app/
-COPY ./supervisor/ /app/
-COPY ./templates/ /app/
+COPY ./model /app/
+COPY ./static /app/
+COPY ./supervisor /app/
+COPY ./templates /app/
 COPY ./requirements.txt /app/
 COPY ./app.py /app/
 COPY ./background_service.py /app/
