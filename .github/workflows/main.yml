@@ -30,11 +30,3 @@ jobs:
             repository: hexadtech/mask-detector
             tag_with_ref: true
 
-      # Trigger redeploy on KPS
-      - name: Call KPS API
-        uses: voxic/simpleKPSAction@v1
-        with:
-            tag: latest
-            image: hexadtech/mask-detector
-            kps-api-key: ${{ secrets.KPS_API_KEY }}
-            kps-app-id: 817c6f3c-7f0b-4189-83b6-07d6966e4546
