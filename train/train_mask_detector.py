@@ -23,6 +23,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import argparse
 import os
+import tensorflow as tf
 
 # construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()
@@ -139,6 +140,8 @@ print(classification_report(testY.argmax(axis=1), predIdxs,
 # serialize the model to disk
 print("[INFO] saving mask detector model...")
 model.save(args["model"], save_format="h5")
+# saving for KPS
+tf.saved_model.save(model, "model")
 
 # plot the training loss and accuracy
 N = EPOCHS

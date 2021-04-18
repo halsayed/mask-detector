@@ -20,9 +20,6 @@ COPY ./videoCapture.py /app/
 COPY ./wsgi.py /app/
 RUN pip install -r /app/requirements.txt
 
-# set default environmnet variables
-ENV RTSP_URL="rtsp://nutanix:test1234@192.168.101.113:8554/Streaming/Channels/101"
-
 # Supervisor config
 COPY /supervisor /src/supervisor
 RUN mkdir /var/log/supervisord

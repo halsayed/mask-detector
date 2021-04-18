@@ -1,0 +1,44 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: mask-detector-ui
+  labels:
+    app: mask-detector-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mask-detector-ui
+  template:
+    metadata:
+      labels:
+        app: mask-detector-ui
+    spec:
+      containers:
+      - name: mask-detector-ui
+        image: hexadtech/mask-detector:latest
+        ports:
+          - name: flask-http
+            containerPort: 8000
+            hostPort: 8888
+            protocol: TCP
+        env:
+        - name: NATS_HOST
+          value: "nats://nats"
+        - name: NATS_PORT
+          value: "4222"
+        - name: NATS_SUBJECT
+          value: "counter"
+        - name: RTSP_URL
+          value: "rtsp://192.168.0.220:5554/ch0"
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: ui-svc
+spec:
+  ports:
+  - port: 8888
+    protocol: TCP
+  selector:
+    app: mask-detector-ui
