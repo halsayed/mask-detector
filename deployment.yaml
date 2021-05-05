@@ -1,36 +1,70 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: mask-detector-ui
+  name: mask-detector
   labels:
-    app: mask-detector-ui
+    app: mask-detector
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mask-detector-ui
+      app: mask-detector
   template:
     metadata:
       labels:
-        app: mask-detector-ui
+        app: mask-detector
     spec:
       containers:
+      - name: redis
+        image: redis:latest
+        ports:
+          - containerPort: 6379
       - name: mask-detector-ui
-        image: hexadtech/mask-detector:latest
+        image: hexadtech/multi-cam-mask-detector:web-ui
         ports:
           - name: flask-http
             containerPort: 8000
             hostPort: 8888
             protocol: TCP
         env:
-        - name: NATS_HOST
-          value: "nats://nats"
-        - name: NATS_PORT
-          value: "4222"
-        - name: NATS_SUBJECT
-          value: "counter"
-        - name: RTSP_URL
-          value: "rtsp://192.168.0.220:5554/ch0"
+          - name: REDIS_HOST
+            value: "localhost"
+      - name: cam1
+        image: hexadtech/multi-cam-mask-detector:service
+        env:
+          - name: RTSP_URL
+            value: "rtsp://nutanix:test1234@192.168.101.111:8554/Streaming/Channels/101"
+          - name: CAMERA_NAME
+            value: "CAM1"
+          - name: REDIS_HOST
+            value: "localhost"
+      - name: cam2
+        image: hexadtech/multi-cam-mask-detector:service
+        env:
+          - name: RTSP_URL
+            value: "rtsp://nutanix:test1234@192.168.101.111:8554/Streaming/Channels/101"
+          - name: CAMERA_NAME
+            value: "CAM2"
+          - name: REDIS_HOST
+            value: "localhost"
+      - name: cam3
+        image: hexadtech/multi-cam-mask-detector:service
+        env:
+          - name: RTSP_URL
+            value: "rtsp://nutanix:test1234@192.168.101.111:8554/Streaming/Channels/101"
+          - name: CAMERA_NAME
+            value: "CAM3"
+          - name: REDIS_HOST
+            value: "localhost"
+      - name: cam4
+        image: hexadtech/multi-cam-mask-detector:service
+        env:
+          - name: RTSP_URL
+            value: "rtsp://nutanix:test1234@192.168.101.111:8554/Streaming/Channels/101"
+          - name: CAMERA_NAME
+            value: "CAM4"
+          - name: REDIS_HOST
+            value: "localhost"
 ---
 kind: Service
 apiVersion: v1
@@ -41,4 +75,4 @@ spec:
   - port: 8888
     protocol: TCP
   selector:
-    app: mask-detector-ui
+    app: mask-detector

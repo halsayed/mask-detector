@@ -1,0 +1,45 @@
+version: "3.9"
+
+services:
+  redis:
+    image: redis
+    networks:
+      - mask-dev
+  web:
+    image: hexadtech/multi-cam-mask-detector:web-ui
+    ports:
+      - "8000:8000"
+    networks:
+      - mask-dev
+  cam1:
+    image: hexadtech/multi-cam-mask-detector:service
+    environment:
+      - RTSP_URL=rtsp://nutanix:test1234@192.168.101.111:8554/Streaming/Channels/101
+      - CAMERA_NAME=CAM1
+    networks:
+      - mask-dev
+  cam2:
+    image: hexadtech/multi-cam-mask-detector:service
+    environment:
+      - RTSP_URL=rtsp://nutanix:test1234@192.168.101.111:8554/Streaming/Channels/101
+      - CAMERA_NAME=CAM2
+    networks:
+      - mask-dev
+  cam3:
+    image: hexadtech/multi-cam-mask-detector:service
+    environment:
+      - RTSP_URL=rtsp://nutanix:test1234@192.168.101.111:8554/Streaming/Channels/101
+      - CAMERA_NAME=CAM3
+    networks:
+      - mask-dev
+  cam4:
+    image: hexadtech/multi-cam-mask-detector:service
+    environment:
+      - RTSP_URL=rtsp://nutanix:test1234@192.168.101.111:8554/Streaming/Channels/101
+      - CAMERA_NAME=CAM4
+    networks:
+      - mask-dev
+
+
+networks:
+  mask-dev:

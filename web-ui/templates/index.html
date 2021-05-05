@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <div class="container-fluid">
+
+        <div class="row" style="padding-top:1rem;">
+
+{#            Camera 1 box#}
+            <div class="col-lg align-top">
+                <div class="card align-top" style="padding-top:1rem;">
+                    <img class="card-img-top rounded" style="max-width:97%;" src="image/CAM1" id="image_cam1">
+                    <div class="card-body">
+                        <h5 class="card-title text-uppercase text-muted mb-2">{{ cam1_name }}</h5>
+                        <div class="row text-center">
+                            <div class="col">
+                                <h6 class="text-uppercase text-muted mb-2">Faces with Mask</h6>
+                                <span class="h2 mb-0" id="mask_count_cam1">0</span>
+                            </div>
+                            <div class="col">
+                                <h6 class="text-uppercase text-muted mb-2">Faces without Mask</h6>
+                                <span class="h2 mb-0" id="nomask_count_cam1">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {#            Camera 2 box#}
+            <div class="col-lg align-top">
+                <div class="card align-top" style="padding-top:1rem;">
+                    <img class="card-img-top rounded" style="max-width:97%;" src="image/CAM2" id="image_cam2">
+                    <div class="card-body">
+                        <h5 class="card-title text-uppercase text-muted mb-2">{{ cam2_name }}</h5>
+                        <div class="row text-center">
+                            <div class="col">
+                                <h6 class="text-uppercase text-muted mb-2">Faces with Mask</h6>
+                                <span class="h2 mb-0" id="mask_count_cam2">0</span>
+                            </div>
+                            <div class="col">
+                                <h6 class="text-uppercase text-muted mb-2">Faces without Mask</h6>
+                                <span class="h2 mb-0" id="nomask_count_cam2">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="row" style="padding-top:1rem;">
+
+  {#            Camera 3 box#}
+            <div class="col-lg align-top">
+                <div class="card align-top" style="padding-top:1rem;">
+                    <img class="card-img-top rounded" style="max-width:97%;" src="image/CAM3" id="image_cam3">
+                    <div class="card-body">
+                        <h5 class="card-title text-uppercase text-muted mb-2">{{ cam3_name }}</h5>
+                        <div class="row text-center">
+                            <div class="col">
+                                <h6 class="text-uppercase text-muted mb-2">Faces with Mask</h6>
+                                <span class="h2 mb-0" id="mask_count_cam3">0</span>
+                            </div>
+                            <div class="col">
+                                <h6 class="text-uppercase text-muted mb-2">Faces without Mask</h6>
+                                <span class="h2 mb-0" id="nomask_count_cam3">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {#            Camera 4 box#}
+            <div class="col-lg align-top">
+                <div class="card align-top" style="padding-top:1rem;">
+                    <img class="card-img-top rounded" style="max-width:97%;" src="image/CAM4" id="image_cam4">
+                    <div class="card-body">
+                        <h5 class="card-title text-uppercase text-muted mb-2">{{ cam4_name }}</h5>
+                        <div class="row text-center">
+                            <div class="col">
+                                <h6 class="text-uppercase text-muted mb-2">Faces with Mask</h6>
+                                <span class="h2 mb-0" id="mask_count_cam4">0</span>
+                            </div>
+                            <div class="col">
+                                <h6 class="text-uppercase text-muted mb-2">Faces without Mask</h6>
+                                <span class="h2 mb-0" id="nomask_count_cam4">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+
+    </div>
+
+{% endblock %}
